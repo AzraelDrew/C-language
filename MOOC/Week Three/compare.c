@@ -15,6 +15,7 @@ int main()
     //     max = b;
     // }
 
+    //不便于阅读
     int max = b;
     if (a > b)
     {
