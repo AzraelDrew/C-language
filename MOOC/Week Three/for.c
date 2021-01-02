@@ -15,7 +15,7 @@ int main(){
 	// }
 
 	// printf("%d! = %d\n",n,fact);
-	int i=10;
+	int i=1;
 	int s =1;
 		for(i=1;i<5;i++){    //在for循环里面定义的话只能在c99中使用
 		// printf("%d\n",i);
