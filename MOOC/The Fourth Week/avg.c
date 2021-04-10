@@ -13,4 +13,3 @@ int main(){
 
     }
     printf("%f\n",1.0*sum/count);
-}
