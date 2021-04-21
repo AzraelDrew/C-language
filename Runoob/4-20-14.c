@@ -97,5 +97,90 @@ int main()
             printf("b的值是100，且c的值是200\n");
         }
     }
+    printf("b的准确值是%d\n", b);
+    printf("c的值准确是%d\n", c);
+    printf("--------------------------------------------------------------------------\n");
+
+    // switch 语句
+
+    /*
+         switch(expression){
+    case constant-expression  :
+       statement(s);
+       break; //可选的
+    case constant-expression  :
+       statement(s);
+       break; //可选的
+  
+    您可以有任意数量的 case 语句
+    default : //可选的
+       statement(s);
+    } 
+    */
+
+    char grade = 'B';
+    switch (grade)
+    {
+    case 'A':
+        printf("很棒\n");
+        break;
+    case 'B':
+    case 'C':
+        printf("做得好\n");
+        break;
+    case 'D':
+        printf("您通过了\n");
+        break;
+    case 'F':
+        printf("最好再试一下\n");
+        break;
+    default:
+        printf("无效的成绩\n");
+    }
+    printf("您的成绩是%c\n", grade);
+
+    printf("--------------------------------------------------------------------------\n");
+
+    // 嵌套 switch 语句
+
+    /* 
+        switch (ch1)
+    {
+    case 'A':
+        printf("这个 A 是外部 switch 的一部分");
+        switch (ch2)
+        {
+        case 'A':
+            printf("这个 A 是内部 switch 的一部分");
+            break;
+        case 'B': //内部 B case 代码
+        }
+        break;
+    case 'B': //外部 B case 代码
+    }
+    */
+
+    switch (b)
+    {
+    case 100:
+        printf("这是外部switch的一部分\n");
+        switch (c)
+        {
+        case 200:
+            printf("这是内部switch的一部分\n");
+        }
+    }
+
+    printf("b的准确值是%d\n", b);
+    printf("c的准确值是%d\n", c);
+
+    printf("--------------------------------------------------------------------------\n");
+
+    // 三元运算符
+
+    int num;
+    printf("请输入一个数字：");
+    scanf("%d", &num);
+    (num % 2 == 0) ? printf("偶数\n") : printf("奇数\n");
     return 0;
 }
