@@ -26,7 +26,7 @@ int *getRandom()
     for (i = 0; i < 10; i++)
     {
         r[i] = rand();
-        printf("%d\n", r[i]);
+        // printf("%d\n", r[i]);
     }
     return r;
 }

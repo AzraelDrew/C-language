@@ -33,6 +33,7 @@ int main()
     printf("Number of seconds:%ld\n", sec);
     int balance[5] = {1000, 2, 3, 17, 50};
     double avg;
+    /* 传递一个指向数组的指针作为参数 */
     avg = getAverage(balance, 5);
     printf("Average value is:%f\n", avg);
 

@@ -19,6 +19,8 @@ int max(int x, int y)
 {
     return x > y ? x : y;
 }
+
+//回调函数
 void populate_array(int *array, size_t arraySize, int (*getNextValue)(void))
 {
     for (size_t i = 0; i < arraySize; i++)
