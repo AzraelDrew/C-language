@@ -59,6 +59,94 @@ __FILE__	这会包含当前文件名，一个字符串常量。
 __LINE__	这会包含当前行号，一个十进制常量。
 __STDC__	当编译器以 ANSI 标准编译时，则定义为 1。
 
+
+预处理器运算符
+C 预处理器提供了下列的运算符来帮助您创建宏：
+
+宏延续运算符（\）
+一个宏通常写在一个单行上。但是如果宏太长，一个单行容纳不下，则使用宏延续运算符（\）。例如：
+
+#define  message_for(a, b)  \
+    printf(#a " and " #b ": We love you!\n")
+字符串常量化运算符（#）
+在宏定义中，当需要把一个宏的参数转换为字符串常量时，则使用字符串常量化运算符（#）。在宏中使用的该运算符有一个特定的参数或参数列表。例如：
+
+#include <stdio.h>
+
+#define  message_for(a, b)  \
+    printf(#a " and " #b ": We love you!\n")
+
+int main(void)
+{
+   message_for(Carole, Debra);
+   return 0;
+}
+当上面的代码被编译和执行时，它会产生下列结果：
+
+Carole and Debra: We love you!
+标记粘贴运算符（##）
+宏定义内的标记粘贴运算符（##）会合并两个参数。它允许在宏定义中两个独立的标记被合并为一个标记。例如：
+
+#include <stdio.h>
+
+#define tokenpaster(n) printf ("token" #n " = %d", token##n)
+
+int main(void)
+{
+   int token34 = 40;
+   
+   tokenpaster(34);
+   return 0;
+}
+当上面的代码被编译和执行时，它会产生下列结果：
+
+token34 = 40
+这是怎么发生的，因为这个实例会从编译器产生下列的实际输出：
+
+printf ("token34 = %d", token34);
+这个实例演示了 token##n 会连接到 token34 中，在这里，我们使用了字符串常量化运算符（#）和标记粘贴运算符（##）。
+
+defined() 运算符
+预处理器 defined 运算符是用在常量表达式中的，用来确定一个标识符是否已经使用 #define 定义过。如果指定的标识符已定义，则值为真（非零）。如果指定的标识符未定义，则值为假（零）。下面的实例演示了 defined() 运算符的用法：
+
+#include <stdio.h>
+
+#if !defined (MESSAGE)
+   #define MESSAGE "You wish!"
+#endif
+
+int main(void)
+{
+   printf("Here is the message: %s\n", MESSAGE);  
+   return 0;
+}
+当上面的代码被编译和执行时，它会产生下列结果：
+
+Here is the message: You wish!
+参数化的宏
+CPP 一个强大的功能是可以使用参数化的宏来模拟函数。例如，下面的代码是计算一个数的平方：
+
+int square(int x) {
+   return x * x;
+}
+我们可以使用宏重写上面的代码，如下：
+
+#define square(x) ((x) * (x))
+在使用带有参数的宏之前，必须使用 #define 指令定义。参数列表是括在圆括号内，且必须紧跟在宏名称的后边。宏名称和左圆括号之间不允许有空格。例如：
+
+#include <stdio.h>
+
+#define MAX(x,y) ((x) > (y) ? (x) : (y))
+
+int main(void)
+{
+   printf("Max between 20 and 10 is %d\n", MAX(10, 20));  
+   return 0;
+}
+当上面的代码被编译和执行时，它会产生下列结果：
+
+Max between 20 and 10 is 20
+
  */
 #include <stdio.h>
 
