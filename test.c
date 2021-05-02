@@ -1,36 +1,49 @@
 #include <stdio.h>
 int main()
 {
-    struct SIMPLE
-    {
-        int a;
-        char b;
-        double c;
-    };
-    struct COMPLEX
-    {
-        char string[100];
-        struct SIMPLE a;
-    };
+  int a, b, t, c;
+  int max(int x, int y, int t);
+  scanf("%d%d%d", &a, &b, &t);
+  c = max(a, b, t);
+  int f = 2, g = 5, h = 7;
+  int l = max(f, g, h);
+  printf("max = %d\n", c);
+  printf("max = %d\n", l);
+  return 0;
+}
 
-    struct COMPLEX f = {"fasdfa", 56, 78, 45.6};
-
-    // printf("%s\n",f.string);
-    // printf("%d\n",f.a.a);
-    // printf("%d\n",f.a.b);
-    // printf("%f\n",f.a.c);
-    struct NODE
+int max(int x, int y, int t)
+{
+  int z;
+  if (x > y)
+  {
+    if (x > t)
     {
-        char string[100];
-        struct NODE *next_node;
-    };
-    // struct NODE node={"124"}
-    struct NODE node = {"456", &node};
-    printf("%s\n", node.string);
-    printf("%s\n", node.next_node->string);
-
+      z = x;
+    }
+    else
     {
+      z = t;
+    }
+  }
+  else
+  {
+    if (y > t)
+    {
+      z = y;
+    }
+    else
+    {
+      z = t;
+    }
+  }
 
-    };
-    return 0;
+  //z = x>y ? x:y;
+  int i = 8;
+  printf("%d ", ++i);
+  printf("%d ", --i);
+  printf("%d ", i++);
+  printf("%d ", i--);
+  printf("%d \n", i);
+  return (z);
 }
