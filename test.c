@@ -1,49 +1,85 @@
+
+
+// #include <stdio.h>
+// int main()
+// {
+//   int a;
+//   int cnt = 0;
+//   scanf("%d", &a);
+//   int i, j, k;
+//   i = a;
+//   for (i = a; i <= a + 3; i++)
+//   {
+//     for (j = a; j <= a + 3; j++)
+//     {
+//       for (k = a; k <= a + 3; k++)
+//       {
+//         if (i != j)
+//         {
+//           if (i != k)
+//           {
+//             if (j != k)
+//             {
+//               cnt++;
+//               printf("%d", i * 100 + j * 10 + k);
+//               if (cnt == 6)
+//               {
+//                 printf("\n");
+//                 cnt = 0;
+//               }
+//               else
+//               {
+//                 printf(" ");
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+//   printf("\n");
+//   return 0;
+// }
+
+// #include <stdio.h>
+// int main()
+// {
+//   int a;
+//   int cnt = 0;
+//   scanf("%d", &a);
+//   int i, j, k;
+//   for (i = a; i <= a + 3; i++)
+//   {
+//     for (j = a; j <= a + 3; j++)
+//     {
+//       for (k = a; k <= a + 3; k++)
+//       {
+//         if (i != j && i != k && j != k)
+//         {
+//           cnt++;
+//           printf("%d%d%d", i, j, k);
+//           if (cnt == 6)
+//           {
+//             printf("\n");
+//             cnt = 0;
+//           }
+//           else
+//           {
+//             printf(" ");
+//           }
+//         }
+//       }
+//     }
+//   }
+//   printf("\n");
+//   return 0;
+// }
 #include <stdio.h>
+#define number 100
 int main()
 {
-  int a, b, t, c;
-  int max(int x, int y, int t);
-  scanf("%d%d%d", &a, &b, &t);
-  c = max(a, b, t);
-  int f = 2, g = 5, h = 7;
-  int l = max(f, g, h);
-  printf("max = %d\n", c);
-  printf("max = %d\n", l);
+  // const int number = 100;
+  int prime[number] = {2};
+  printf("%d\n", prime[0]);
   return 0;
-}
-
-int max(int x, int y, int t)
-{
-  int z;
-  if (x > y)
-  {
-    if (x > t)
-    {
-      z = x;
-    }
-    else
-    {
-      z = t;
-    }
-  }
-  else
-  {
-    if (y > t)
-    {
-      z = y;
-    }
-    else
-    {
-      z = t;
-    }
-  }
-
-  //z = x>y ? x:y;
-  int i = 8;
-  printf("%d ", ++i);
-  printf("%d ", --i);
-  printf("%d ", i++);
-  printf("%d ", i--);
-  printf("%d \n", i);
-  return (z);
 }
