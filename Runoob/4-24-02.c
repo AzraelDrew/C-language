@@ -34,26 +34,26 @@ struct{
 
 struct Books
 {
-    char title[50];
-    char author[50];
-    char subject[100];
-    int book_id;
+  char title[50];
+  char author[50];
+  char subject[100];
+  int book_id;
 };
 void printBook(struct Books book)
 {
-    book.book_id = 99;
-    printf("Book title : %s\n", book.title);
-    printf("Book author : %s\n", book.author);
-    printf("Book subject : %s\n", book.subject);
-    printf("Book book_id : %d\n", book.book_id);
+  book.book_id = 99;
+  printf("Book title : %s\n", book.title);
+  printf("Book author : %s\n", book.author);
+  printf("Book subject : %s\n", book.subject);
+  printf("Book book_id : %d\n", book.book_id);
 }
 void printBook1(struct Books *book)
 {
-    book->book_id = 99; //为了使用指向该结构的指针访问结构的成员，您必须使用 -> 运算符
-    printf("Book title : %s\n", book->title);
-    printf("Book author : %s\n", book->author);
-    printf("Book subject : %s\n", book->subject);
-    printf("Book book_id : %d\n", book->book_id);
+  book->book_id = 99; //为了使用指向该结构的指针访问结构的成员，您必须使用 -> 运算符
+  printf("Book title : %s\n", book->title);
+  printf("Book author : %s\n", book->author);
+  printf("Book subject : %s\n", book->subject);
+  printf("Book book_id : %d\n", book->book_id);
 }
 struct Books book = {"C language", "azrael", "language", 10086};
 struct Books Book1 = {"C Programming", "Nuha Ali", "C Programming Tutorial", 6495407};
@@ -61,28 +61,28 @@ struct Books Book2 = {"Telecom Billing", "Zara Ali", "Telecom Billing Tutorial",
 int main()
 {
 
-    // printf("%s\n%d\n%s\n%d\nd", book.title, book.book_id, book.subject, book.book_id);
+  // printf("%s\n%d\n%s\n%d\nd", book.title, book.book_id, book.subject, book.book_id);
 
-    printBook(Book1);
-    /* 输出 Book1 信息 */
-    printf("---------------------------------\n");
-    printf("Book 1 title : %s\n", Book1.title);
-    printf("Book 1 author : %s\n", Book1.author);
-    printf("Book 1 subject : %s\n", Book1.subject);
-    printf("Book 1 book_id : %d\n", Book1.book_id);
-    printf("---------------------------------\n");
+  printBook(Book1);
+  /* 输出 Book1 信息 */
+  printf("---------------------------------\n");
+  printf("Book 1 title : %s\n", Book1.title);
+  printf("Book 1 author : %s\n", Book1.author);
+  printf("Book 1 subject : %s\n", Book1.subject);
+  printf("Book 1 book_id : %d\n", Book1.book_id);
+  printf("---------------------------------\n");
 
-    printBook1(&Book1);
-    printf("---------------------------------\n");
-    printf("Book 1 title : %s\n", Book1.title);
-    printf("Book 1 author : %s\n", Book1.author);
-    printf("Book 1 subject : %s\n", Book1.subject);
-    printf("Book 1 book_id : %d\n", Book1.book_id);
+  printBook1(&Book1);
+  printf("---------------------------------\n");
+  printf("Book 1 title : %s\n", Book1.title);
+  printf("Book 1 author : %s\n", Book1.author);
+  printf("Book 1 subject : %s\n", Book1.subject);
+  printf("Book 1 book_id : %d\n", Book1.book_id);
 
-    // /* 输出 Book2 信息 */
-    // printf("Book 2 title : %s\n", Book2.title);
-    // printf("Book 2 author : %s\n", Book2.author);
-    // printf("Book 2 subject : %s\n", Book2.subject);
-    // printf("Book 2 book_id : %d\n", Book2.book_id);
-    return 0;
+  // /* 输出 Book2 信息 */
+  // printf("Book 2 title : %s\n", Book2.title);
+  // printf("Book 2 author : %s\n", Book2.author);
+  // printf("Book 2 subject : %s\n", Book2.subject);
+  // printf("Book 2 book_id : %d\n", Book2.book_id);
+  return 0;
 }
