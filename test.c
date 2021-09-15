@@ -99,31 +99,12 @@ struct flower{
   float average_radius; 
   float average_height;
   char season[20];
-} Pflower;
-struct flower f1;
-struct flower f2;
-struct flower f3;
+};
+struct flower *Pflower1;
 
-  Pflower.name="red";
-  printf("%s\n",Pflower.name);
-  strcpy( f1.name, "rose");
-  strcpy( f1.color, "red");
-  strcpy( f1.season, "A"); 
-  f1.average_radius=2.36;
-  f1.average_height=32.15;
+struct flower f1 ={"rose","red",2.36,32.15,'A'};
 
+Pflower1 = &f1;
 
-  // strcpy( f2.name, "chrysanthemum");
-  // strcpy( f2.color, "yellow");
-  // strcpy( f2.season, "F"); 
-  f2.average_radius=4.79;
-  f2.average_height=28.31;
-
-  // strcpy( f3.name, "Peony");
-  // strcpy( f3.color, "pink");
-  // strcpy( f3.season, "S"); 
-  f3.average_radius=3.61;
-  f3.average_height=25.12;
-
-  printf("%s\n",f3.name);
+printf("%s\n",Pflower1->name);
 }
