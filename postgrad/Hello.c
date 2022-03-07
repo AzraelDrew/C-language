@@ -1,6 +1,10 @@
 #include "stdio.h"
-int main()
+int hello(int number)
+{
+	printf("Hello World!%d\n",number);
+}
+void main()
 {
 	printf("Hello Wrold!\n");
-	return 0;
+	hello(123);
 }
