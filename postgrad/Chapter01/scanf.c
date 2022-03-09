@@ -1,12 +1,10 @@
+#define  CRT_SECURE_NO_WARNINGS //解决sancf报错问题
 #include "stdio.h"
-
-#define PI 3   //定义符号常量
 
 int main()
 {
-	int a=1;//a就是一个变量
-    a = 5;
-    //PI = 10;   //不能给常量赋值  
-    printf("%d\n",PI);
+    int a;
+    scanf("%d", &a);  //在变量前加入&
+    printf("a=%d\n",a);
     return 0;
 }
