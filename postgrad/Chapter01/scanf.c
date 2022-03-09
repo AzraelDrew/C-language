@@ -6,5 +6,6 @@ int main()
     int a,b;
     scanf("%d%d", &a,&b);  //在变量前加入&
     printf("a=%d,b=%d\n",a,b);
+    printf("a+b=%d\n",a+b);
     return 0;
 }
