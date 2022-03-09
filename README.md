@@ -117,13 +117,68 @@ continue
 quit
 ```
 
+> 或者使用vscode中CodeLLDB插件(在根目录下创建.vscode目录在.vscode中创建下面两个文件)
+
+- launch.json
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/build/${fileBasenameNoExtension}",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
+```
+
+- tasks.json
+
+```json
+{
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C/C++: gcc 生成活动文件",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "调试器生成的任务。"
+    }
+  ],
+  "version": "2.0.0"
+}
+
+```
+
+
+
+
+
+
+
 ### 注意:
 
 - 当设置断点后，使用"run"命令开始运行程序
 - GDB 中，大多数的命令单词都可以简写为一个字母
 - Update Url
-
-
 
 - **%d** 十进制有符号整数
 - **%u** 十进制无符号整数
@@ -136,6 +191,5 @@ quit
 - **%o** 无符号以八进制表示的整数
 - **%g** 把输出的值按照 %e 或者 %f 类型中输出长度较小的方式输出
 - **%p** 输出地址符
-- **%lu** 32位无符号整数
-- **%llu** 64位无符号整数
-
+- **%lu** 32 位无符号整数
+- **%llu** 64 位无符号整数
