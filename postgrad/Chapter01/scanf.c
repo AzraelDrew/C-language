@@ -3,8 +3,8 @@
 
 int main()
 {
-    int a;
-    scanf("%d", &a);  //在变量前加入&
-    printf("a=%d\n",a);
+    int a,b;
+    scanf("%d%d", &a,&b);  //在变量前加入&
+    printf("a=%d,b=%d\n",a,b);
     return 0;
 }
