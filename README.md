@@ -117,7 +117,7 @@ continue
 quit
 ```
 
-> 或者使用vscode中CodeLLDB插件(在根目录下创建.vscode目录在.vscode中创建下面两个文件)
+> 或者使用 vscode 中 CodeLLDB 插件(在根目录下创建.vscode 目录在.vscode 中创建下面两个文件)
 
 - launch.json
 
@@ -125,6 +125,19 @@ quit
 {
   "version": "0.2.0",
   "configurations": [
+    {
+      "name": "gcc - 生成和调试活动文件",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "C/C++: gcc 生成活动文件"
+    },
     {
       "name": "Launch",
       "type": "lldb",
@@ -165,14 +178,7 @@ quit
   ],
   "version": "2.0.0"
 }
-
 ```
-
-
-
-
-
-
 
 ### 注意:
 
