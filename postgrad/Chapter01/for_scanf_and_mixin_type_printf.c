@@ -16,7 +16,7 @@ while(scanf("%d",&i)!=EOF){   //EOF 在"stdio.h"头文件中定义为-1  为了�
 } */
 /*
 int i;
-while(rewind(stdin),scanf("%d",&i)!=EOF){  //stdin是标准输入
+while(rewind(stdin),scanf("%d",&i)!=EOF){  //stdin是标准输入    逗号运算符的值是最后一个表达式的值  
     printf("i=%d\n", i);
 
     //使用rewind(stdin)清空缓冲区后就不会进入死循环
