@@ -23,6 +23,6 @@ int main()
 
 int a;
 scanf("%d",&a);
-printf("%d\n",a);
+printf("%a\n",a);
 return 0;
 } 
