@@ -10,6 +10,12 @@ int main()
     //     printf("False\n");
     // }
 
+
+    //if与else 可以不断地else if  最后才是else 也可以没有else   有且只有一个语句会执行 
+    //if内部还可以嵌套if
+    //else 不能单独出现
+    //每个if else 最好都加上花括号(避免if else 配对混乱 )
+
     int i = 0;
     while (scanf("%d",&i)!=EOF)
     {
