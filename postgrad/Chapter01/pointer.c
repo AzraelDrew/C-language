@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 // void change(int j)
 // {
 //     j = 5;    //每个函数都有自己的内存空间  调用函数时创建j 只是把i的值赋值给j  
@@ -10,11 +11,29 @@
 // {
 //     *j = 5;    //每个函数都有自己的内存空间  调用函数时创建j
 // }
+
 //数组名作为实参传递给子函数时会弱化为指针
-void change(char *d){  // char *d === char d[]   都是指针
-    *d = 'H';
-    d[1] = 'E';
-    *(d + 2) = 'L';
+// void change(char *d){  // char *d === char d[]   都是指针
+//     *d = 'H';
+//     d[1] = 'E';
+//     *(d + 2) = 'L';
+// }
+
+// char *print_stack(){
+//     char c[] = "I am print_stack";
+//     puts(c);
+//     return c;    //返回的指针不能是函数内的栈空间
+// }
+char *print_malloc(){
+    char *p = (char *)malloc(30);
+    strcpy(p, "I am print_malloc");
+    puts(p);
+    return p;
+}
+
+void change(int **p,int *p2,int **p3,int *p4){
+    *p = p2;
+    *p3 = p4;
 }
 int main()
 {
@@ -90,14 +109,45 @@ puts(c); */
 
 
 /* 指针与动态内存申请 */
-
+/* //malloc 可以实现动态数组
 int i;
 scanf("%d",&i);
 char *p;
 //我们使用时需要强制类型转换  且只能赋值给同类型的指针变量  (赋值的时候等号左右两边的类型必须一致)
-p = (char*)malloc(i);  //malloc申请空间是以字节为单位   且返回值是一个void类型的指针
-gets(p);
+p = (char*)malloc(i);  //malloc申请空间是以字节为单位,不强制类型转换会警告   且返回值是一个void类型的指针
+strcpy(p, "malloc successfully");
 puts(p);
-free(p);
+// 在free 时不能将指针偏移等操作 否则会找不到对应的地址空间(即p的值必须和malloc返回的值一致)
+free(p);  //释放空间  p的值没有变(还是申请的起始地址)  即申请的地址还在 但是里面的内容变了
+// free之后应把p赋值为NULL
+p = NULL;   //若不把p赋值为NULL(NULL=0),称为野指针(指向一个不属于自己的地址)*/
+
+
+/* 栈空间与堆空间的差异 */
+
+/* char *p;
+// p = print_stack();   //栈空间会随着函数的执行结束而释放
+// puts(print_stack());
+// puts(p);   //当函数结束后就会将函数的空间收回 相应的函数中的所有的内容都会回收
+p = print_malloc();  //堆空间不会随着子函数的执行结束而释放,必须自己free,当进程结束时也会释放 
+puts(p);  */
+
+/* 字符指针与字符数组的初始化 */
+
+/* char *p = "hello";   //相当于把字符串常量"hello"的首地址赋值给p
+char c[] = "hello";  //相当于strcpy(c,"hello")   将"hello"放在自己栈空间(可读写)
+c[0] = 'H';
+// p[0] = 'H';  //不能对常量区的数据进行修改
+printf("c[0]=%c\n", c[0]);
+printf("p[0]=%c\n",p[0]);
+p = "world";   //将字符串"world"的首地址赋值给p
+// c = "world";  //非法   因为c的地址无法改变    即c的值无法修改
+puts(p); */
+
+int i = 10, j = 5;
+int *pi=&i, *pj=&j;
+printf("i=%d,*pi=%d,*pj=%d\n", i,*pi,*pj );
+change(&pi,pj,&pj,pi);   //&pi就是一个二级指针类型   二级指针的初始化必须是一个一级指针的地址 
+printf("after change i=%d,*pi=%d,*pj=%d\n", i,*pi,*pj );
 return 0;
 } 
