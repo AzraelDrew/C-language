@@ -1,5 +1,4 @@
 #include "func.h"   //引入自定义的头文件用""
-#include <stdio.h>
 
 int main()
 {
