@@ -12,7 +12,7 @@ typedef struct LNode
     struct LNode *next;  //指向下一个结点 
 } LNode, *LinkList;
 
-LinkList ListHeadInsert(LinkList &L) //list_head_insert
+LinkList ListHeadInsert(LinkList &L) //头插法
 { 
     // LNode *s;
     LinkList s;
@@ -30,8 +30,12 @@ LinkList ListHeadInsert(LinkList &L) //list_head_insert
     }
     return L;
 }
+LinkList ListIndexInsert(LinkList L,int i,ElemType e)
+{
 
-LinkList ListEndInsert(LinkList &L){
+}
+LinkList ListEndInsert(LinkList &L) //尾插法
+{
     int x;
     L=(LinkList)malloc(sizeof(LNode));
     L->next = NULL;
@@ -49,12 +53,43 @@ LinkList ListEndInsert(LinkList &L){
     r->next = NULL;  //尾结点next设置为NULL   若不设置为NULL 尾结点next会有一个不为NULL默认值   从而在打印的时候会找不到数据或找到错误的数据
     return L; 
 }
+LinkList ListIndexSearchItem(LinkList L,int i)   //按位置查询
+{
+    int j = 1;
+    LinkList p= L->next;//让p指向第一个元素  (L指向的是头结点)
+    if(i==0)   //i为0返回头结点
+    {
+        return L;   
+    }  
+    if(i<1)   //i为负值返回空
+    {
+        return NULL;
+    }
+    while(p && j<i)
+    {
+        p = p->next;   //让p指向下一个结点
+        j++;
+    }
+    return p;
+}
+LinkList ListValueSearchItem(LinkList L,ElemType e,ElemType &index)
+{
+    LinkList p = L->next;
+    int i = 1;
+    while (p != NULL && p->data != e)  //写 p!=NULL 与 p 效果相同   
+    {
+        p = p->next;
+        i++;
+        index = i;
+    }
+    return p;
+}
 void PrintList(LinkList L)
 {
     L=L->next;
     while (L!=NULL)
     {
-        printf("%d",L->data);  //打印当前结点数据
+        printf("%-3d",L->data);  //打印当前结点数据
         L = L->next;  //指向下一个结点
     }
     printf("\n");
@@ -63,9 +98,21 @@ int main()
 {
     LinkList L;  //链表头,结构体指针类型
     LinkList search;
-    ListHeadInsert(L);   //头插法
-    PrintList(L);
+    ElemType index;
+    // ListHeadInsert(L);   //头插法
+    // PrintList(L);
     ListEndInsert(L);
     PrintList(L);
+    search= ListIndexSearchItem(L, 2);
+    if(search!=NULL)
+    {
+    printf("按序号查找成功,数据为:%d\n",search->data);
+    }
+    search= ListValueSearchItem(L,2,index);
+    if(search!=NULL)
+    {
+    printf("按值查找成功,位置为:%d\n",index);
+    }
+
     return 0;
 }  
