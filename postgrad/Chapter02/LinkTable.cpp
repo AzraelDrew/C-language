@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 //线性表的链式存储(链表)
 
 //单链表
@@ -30,9 +29,19 @@ LinkList ListHeadInsert(LinkList &L) //头插法
     }
     return L;
 }
-LinkList ListIndexInsert(LinkList L,int i,ElemType e)
-{
+LinkList ListIndexSearchItem(LinkList L, int i);
 
+bool ListIndexInsert(LinkList L,int i,ElemType e)   //按位置插入
+{
+    LinkList p = ListIndexSearchItem(L, i-1);  //拿到要插入位置的其那一个位置的地址值
+    if(p==NULL){
+        return false;
+    }
+    LinkList s = (LinkList)malloc(sizeof(LNode));
+    s->data = e;  //将要插入的值放入新结点
+    s->next = p->next;  //将你要插入的位置的原结点的地址赋值给新结点
+    p->next = s;   //将要插入的位置的前一个结点指向新节点
+    return true; 
 }
 LinkList ListEndInsert(LinkList &L) //尾插法
 {
@@ -52,6 +61,19 @@ LinkList ListEndInsert(LinkList &L) //尾插法
     }
     r->next = NULL;  //尾结点next设置为NULL   若不设置为NULL 尾结点next会有一个不为NULL默认值   从而在打印的时候会找不到数据或找到错误的数据
     return L; 
+}
+bool ListIndexDelete(LinkList L,int i)   //按位置删除
+{
+    LinkList p = ListIndexSearchItem(L, i - 1);
+    if(p == NULL)
+    {
+        return false; 
+    }
+    LinkList q = p->next;  //存放需要删除的结点
+    p->next = q->next;    //将需要删除的节点的前一个结点指向需要删除的后一个结点
+    free(q);   //释放删除的节点
+    q = NULL;   //避免野指针
+    return true;
 }
 LinkList ListIndexSearchItem(LinkList L,int i)   //按位置查询
 {
@@ -113,6 +135,10 @@ int main()
     {
     printf("按值查找成功,位置为:%d\n",index);
     }
+    ListIndexInsert(L,2,99);
+    PrintList(L);
+    ListIndexDelete(L, 4);
+    PrintList(L);
 
     return 0;
 }  
