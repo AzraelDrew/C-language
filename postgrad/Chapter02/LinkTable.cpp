@@ -31,7 +31,7 @@ LinkList ListHeadInsert(LinkList &L) //头插法
 }
 LinkList ListIndexSearchItem(LinkList L, int i);
 
-bool ListIndexInsert(LinkList L,int i,ElemType e)   //按位置插入
+bool ListIndexInsert(LinkList &L,int i,ElemType e)   //按位置插入
 {
     LinkList p = ListIndexSearchItem(L, i-1);  //拿到要插入位置的其那一个位置的地址值
     if(p==NULL){
@@ -135,9 +135,12 @@ int main()
     {
     printf("按值查找成功,位置为:%d\n",index);
     }
-    ListIndexInsert(L,2,99);
+    ListIndexInsert(L,1,99);
     PrintList(L);
+    printf("%d\n", L->next->data);
     ListIndexDelete(L, 4);
+    PrintList(L);
+    ListIndexInsert(L,3,88);
     PrintList(L);
 
     return 0;
