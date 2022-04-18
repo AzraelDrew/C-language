@@ -106,6 +106,19 @@ LinkList ListValueSearchItem(LinkList L,ElemType e,ElemType &index)
     }
     return p;
 }
+void ListValueChange(LinkList L, int i, ElemType e)
+{
+    LinkList p = L->next;
+    int j = 1;
+    while (p != NULL)
+    {
+        if(j==i){
+            p->data = e;
+        }
+        j++;
+        p= p->next;
+    }
+}
 void PrintList(LinkList L)
 {
     L=L->next;
@@ -141,6 +154,8 @@ int main()
     ListIndexDelete(L, 4);
     PrintList(L);
     ListIndexInsert(L,3,88);
+    PrintList(L);
+    ListValueChange(L,3,44);
     PrintList(L);
 
     return 0;
