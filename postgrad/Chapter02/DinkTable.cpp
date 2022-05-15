@@ -10,7 +10,7 @@ typedef struct DNode
     struct DNode *pre;  //前驱指针
     struct DNode *next;  //后继指针 
 } DNode, *DLinkList;
-DLinkList DListHeadrInsert(DLinkList &DL){
+DLinkList DListHeadrInsert(DLinkList &DL){   //头插法
     DLinkList s;
     int x;
     DL = (DLinkList)malloc(sizeof(DNode));   //带头结点的双向链表
@@ -31,8 +31,23 @@ DLinkList DListHeadrInsert(DLinkList &DL){
     }
     return DL;
 }
-DLinkList DListEndInsert(DLinkList &DL)
-{
+
+DLinkList DListValueSearchItem(DLinkList DL, int i);
+
+bool DListIndexInsert(DLinkList DL, int i,ElemType  e){  //删除时没有改变头结点可以不使用引用
+    DLinkList p = DListValueSearchItem(DL, i-1);
+    if(p== NULL){
+        return false;
+    }
+    DLinkList s = (DLinkList)malloc(sizeof(DNode));
+    s->data = e;
+    s->next = p->next;
+    p->next->pre = s;
+    s->pre = p;
+    p->next = s;
+    return true;
+}
+DLinkList DListEndInsert(DLinkList &DL){   //尾插法
     DL = (DLinkList)malloc(sizeof(DNode));
     int x;
     DLinkList s, r=DL;
@@ -51,6 +66,40 @@ DLinkList DListEndInsert(DLinkList &DL)
     r -> next = NULL;
     return DL;
 }
+bool DListIndexDelete(DLinkList DL, int i){   //删除时没有改变头结点可以不使用引用
+    DLinkList p = DListValueSearchItem(DL, i - 1);
+    if(p ==NULL){
+        return false;
+    }
+    DLinkList q  = p->next;
+    if(q==NULL){
+        return false;
+    }
+    p->next = q->next;
+    if(q->next != NULL){
+        q->next->pre = p->next;
+    }
+    free(q);
+    q = NULL;
+    return true;
+}
+DLinkList DListValueSearchItem(DLinkList DL, int i)
+{
+
+    int j = 1;
+    DLinkList p = DL->next;
+    if(i==0){
+        return DL;
+    }
+    if(i<1){
+        return NULL;
+    }
+    while(p &&j<i){
+        p = p->next;
+        j++;
+    }
+    return p;
+}
 void PrintList(DLinkList DL)
 {
     DL = DL->next;
@@ -64,11 +113,19 @@ void PrintList(DLinkList DL)
 }
 int main()
 {
-    DLinkList DL;
+    DLinkList DL,DL2;
     DLinkList search;
     DListHeadrInsert(DL);  //头插法
     PrintList(DL);
-    DListEndInsert(DL);  //尾插法
+    // DListEndInsert(DL2);  //尾插法
+    // PrintList(DL2);
+    search = DListValueSearchItem(DL, 2);
+    printf("%d\n", search->data);
+    DListIndexInsert(DL, 2, 99);
+    PrintList(DL);
+    search = DListValueSearchItem(DL, 2);
+    printf("%d\n", search->data);
+    DListIndexDelete(DL, 2);
     PrintList(DL);
     return 0;
 }  

@@ -31,7 +31,7 @@ LinkList ListHeadInsert(LinkList &L) //头插法
 }
 LinkList ListIndexSearchItem(LinkList L, int i);
 
-bool ListIndexInsert(LinkList &L,int i,ElemType e)   //按位置插入
+bool ListIndexInsert(LinkList L,int i,ElemType e)   //按位置插入      没有改变头结点可以不使用引用
 {
     LinkList p = ListIndexSearchItem(L, i-1);  //拿到要插入位置的其那一个位置的地址值
     if(p==NULL){
@@ -62,7 +62,7 @@ LinkList ListEndInsert(LinkList &L) //尾插法
     r->next = NULL;  //尾结点next设置为NULL   若不设置为NULL 尾结点next会有一个不为NULL默认值   从而在打印的时候会找不到数据或找到错误的数据
     return L; 
 }
-bool ListIndexDelete(LinkList L,int i)   //按位置删除
+bool ListIndexDelete(LinkList L,int i)   //按位置删除   删除时没有改变头结点可以不使用引用
 {
     LinkList p = ListIndexSearchItem(L, i - 1);
     if(p == NULL)
@@ -70,6 +70,9 @@ bool ListIndexDelete(LinkList L,int i)   //按位置删除
         return false; 
     }
     LinkList q = p->next;  //存放需要删除的结点
+    if(q==NULL){
+        return false;
+    }
     p->next = q->next;    //将需要删除的节点的前一个结点指向需要删除的后一个结点
     free(q);   //释放删除的节点
     q = NULL;   //避免野指针
