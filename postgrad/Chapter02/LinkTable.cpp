@@ -8,12 +8,11 @@ typedef int ElemType;
 typedef struct LNode
 {  
     ElemType data;  //存放数据
-    struct LNode *next;  //指向下一个结点 
+    struct LNode *next;  //指向下一个结点    此处不能使用LinkList声明变量next  因为前面还没有定义LinkList
 } LNode, *LinkList;
 
 LinkList ListHeadInsert(LinkList &L) //头插法
 { 
-    // LNode *s;
     LinkList s;
     int x;
     L = (LinkList)malloc(sizeof(LNode));   //带头结点的链表
@@ -67,7 +66,7 @@ bool ListIndexDelete(LinkList L,int i)   //按位置删除   删除时没有改�
     LinkList p = ListIndexSearchItem(L, i - 1);
     if(p == NULL)
     {
-        return false; 
+        return false;  
     }
     LinkList q = p->next;  //存放需要删除的结点
     if(q==NULL){
@@ -122,6 +121,7 @@ void ListValueChange(LinkList L, int i, ElemType e)
         p= p->next;
     }
 }
+
 void PrintList(LinkList L)
 {
     L=L->next;
