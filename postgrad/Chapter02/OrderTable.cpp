@@ -25,7 +25,7 @@ bool ListInsert(SqList &L,int i,ElemType e){  //插入元素
     return true; //走到这里插入,成功返回true
 }
 bool ListDelete(SqList &L,int i,ElemType &e){  //删除元素
-    if(i<1|| i>L.len+1){   //判断插入位置是否合法
+    if(i<1|| i>L.len+1){   //判断删除位置是否合法
         return false;
     }
     if(L.len==0){   //表为空
