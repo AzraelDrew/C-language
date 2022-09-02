@@ -7,11 +7,19 @@ int main(int argc, char const *argv[])
       "Hello",
       "World",
       "snvcd"};
-  char *a1[] = {//char *  ==a1[0]
-                "Hello",
-                "World",
-                "sdfdshgjnvcd"};
-  printf("%s\n", a[2]);
+  int b[] = {1};
+  char *a1[6] = {
+      "Hello",
+      "World",
+      "snvcd"};
+  for (int i = 0; i < 3;i++){
+    printf("a:%s\n", a[i]);
+    printf("--------------\n");
+    printf("a1:%s\n",a1[i]);
+    printf("--------------\n");
+
+  }
+  
 
   int i;
   for (i = 0; i < argc; i++)

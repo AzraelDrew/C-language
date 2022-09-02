@@ -21,7 +21,7 @@ bool StackEmpty(SqStack S){
     return false;
 }
 bool PushStack(SqStack &S,ElemType e){
-    if(S.top == MaxSize){
+    if(S.top == MaxSize-1){
         return false;
     }
     S.data[++S.top] = e;

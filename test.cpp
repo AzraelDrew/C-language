@@ -205,21 +205,58 @@
 
 
 
-#include <stdio.h>
-int a = 200;
-void f()
-{
-	static int  a = 20;
-	a++;
-	printf("%d\n", a);
-}
+// #include <stdio.h>
+// int a = 200;
+// void f()
+// {
+// 	static int  a = 20;
+// 	a++;
+// 	printf("%d\n", a);
+// }
 
+// int main()
+// {
+// 	// for (int i = 1; i <= 3;i++){
+// 	// 	a++;
+// 	// 	printf("%d\n",a);
+// 	// 	f();
+// 	// }
+// 	int  a[3][4] = {{1,2,3}, {4,5,6}, {7,8}}, *p[3];
+// 	for (int i = 0; i < 3;i++){
+// 		p[i] = a[i];
+// 	}
+// 	for (int i = 0; i < 3;i++){
+// 		printf("%d\n",*p[i]);
+// 	}
+// 	printf("%d\n", a[2][3]);
+// 	return 0;
+// }
+
+#include<stdio.h>
+// #include<string.h>
 int main()
 {
-	for (int i = 1; i <= 3;i++){
-		a++;
-		printf("%d\n",a);
-		f();
-	}
-		return 0;
+	// char s[20]="abcdefGHI";
+	// char b[20] = "1234567";
+	// char *p = b;
+	// printf("%s\n", strcat(s + 3, p + 4));
+	// printf("%lu\n",strlen(p+2));
+	// printf("%s\n",strcpy(p+3,s+9));
+    // int i = 5;
+    // printf("%d %d %d %d\n",i++,i,++i,i++);
+
+
+ char ch[10];
+ int n;
+ scanf("%d",&n);
+ for (int i = 0; i < n; i++)
+ {
+  scanf("%d ",&ch[i]);
+ }
+ for ( int i = 0; i < n; i++)
+ {
+  printf("%d \n", ch[i]);
+ }
+
+    return 0;
 }
