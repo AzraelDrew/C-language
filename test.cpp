@@ -246,12 +246,12 @@ int main()
     // printf("%d %d %d %d\n",i++,i,++i,i++);
 
 
- char ch[10];
+ int ch[10];
  int n;
  scanf("%d",&n);
  for (int i = 0; i < n; i++)
  {
-  scanf("%d ",&ch[i]);
+  scanf("%d",&ch[i]);
  }
  for ( int i = 0; i < n; i++)
  {
