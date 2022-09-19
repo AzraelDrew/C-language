@@ -233,6 +233,21 @@
 // }
 
 #include<stdio.h>
+#include <math.h>
+
+
+int mixin(int m,int n){
+	if(n==0&m==0){
+		return 0;
+	}
+	if(m%n==0){
+		return m;
+	}
+	else if(n%m==0){
+		return n;
+	}
+	return m * n;
+}
 // #include<string.h>
 int main()
 {
@@ -246,17 +261,58 @@ int main()
     // printf("%d %d %d %d\n",i++,i,++i,i++);
 
 
- int ch[10];
- int n;
- scanf("%d",&n);
- for (int i = 0; i < n; i++)
- {
-  scanf("%d",&ch[i]);
- }
- for ( int i = 0; i < n; i++)
- {
-  printf("%d \n", ch[i]);
- }
+//  int ch[10];
+//  int n;
+//  scanf("%d",&n);
+//  for (int i = 0; i < n; i++)
+//  {
+//   scanf("%d",&ch[i]);
+//  }
+//  for ( int i = 0; i < n; i++)
+//  {
+//   printf("%d \n", ch[i]);
+//  }
 
-    return 0;
+	// int m, n;
+	// printf("请输入两个整数：");
+	// scanf("%d %d",&m,&n);
+	// printf("%d\n", mixin(m, n));
+	// return 0;
+	// int s,sum, i, k;
+	// scanf("%d", &s);
+	// sum = 1;
+	// for (i = 2; i < s; i++)
+	// {
+	// 	if(s%i==0){
+	// 		sum += i;
+	// 	}
+	// }
+	// if (sum == s)
+	// {
+	// 	printf("%d\n", sum);
+	// }
+
+	// for (int i = 1; i <= 9;i++){
+	// 	for (int j = 1; j <= i;j++){
+	// 		printf("%2.d", i * j);
+	// 		printf(" ");
+	// 	}
+	// 	printf("\n");
+	// }
+
+	float max=50, min=0;
+	for (float x = 0; x <= 2; x += 0.2)
+	{
+		float consult = 2*pow(x,3)-3*pow(x,4)+6*pow(x,5)-4*x+50;
+		printf("%f\n", consult);
+		if(consult>max){
+			min = max;
+			max = consult;
+		}
+		else if(consult<min){
+			min = consult;
+		}
+	}
+
+	printf("max = %f,min = %f\n", max, min);
 }
