@@ -248,6 +248,15 @@ int mixin(int m,int n){
 	}
 	return m * n;
 }
+
+int func(int *a){
+ printf("funcLen = %lu\n",sizeof(a));
+ printf("funcarr = ");
+ for(int i=0;i<3;i++)
+  printf("%d ",a[i]);
+ putchar('\n');
+ return 0;
+}
 // #include<string.h>
 int main()
 {
@@ -300,19 +309,40 @@ int main()
 	// 	printf("\n");
 	// }
 
-	float max=50, min=0;
-	for (float x = 0; x <= 2; x += 0.2)
-	{
-		float consult = 2*pow(x,3)-3*pow(x,4)+6*pow(x,5)-4*x+50;
-		printf("%f\n", consult);
-		if(consult>max){
-			min = max;
-			max = consult;
-		}
-		else if(consult<min){
-			min = consult;
-		}
-	}
+	// float max=50, min=0;
+	// for (float x = 0; x <= 2; x += 0.2)
+	// {
+	// 	float consult = 2*pow(x,3)-3*pow(x,4)+6*pow(x,5)-4*x+50;
+	// 	printf("%f\n", consult);
+	// 	if(consult>max){
+	// 		min = max;
+	// 		max = consult;
+	// 	}
+	// 	else if(consult<min){
+	// 		min = consult;
+	// 	}
+	// }
 
-	printf("max = %f,min = %f\n", max, min);
+	// printf("max = %f,min = %f\n", max, min);
+
+
+
+
+
+//  int a[3];
+//  for(int i=0;i<3;i++)
+//   scanf("%d",&a[i]);
+//  func(a);
+//  printf("main = %lu\n",sizeof(a)/sizeof(int));
+//  for(int i=0;i<3;i++)
+//   printf("%d ",a[i]);
+	int a, b;
+	float x;
+	b++;
+	printf("%d\n",b);
+	b = int(x);
+	printf("%d\n",b);
+	return 0;
+
+	
 }

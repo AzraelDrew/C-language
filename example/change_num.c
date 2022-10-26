@@ -17,7 +17,6 @@ void three_num_swap(int a,int b,int c){
     a = a - (b + c); //6-(3+1)
 
     printf("a=%d,b=%d,c=%d\n", a, b, c);
-
 }
 int main()
 {
