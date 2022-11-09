@@ -129,14 +129,14 @@ quit
       "name": "gcc - 生成和调试活动文件",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "program": "${fileDirname}/build/${fileBasenameNoExtension}", //此处与tasks.json中的路径必须一致
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
       "externalConsole": false,
       "MIMode": "lldb",
-      "preLaunchTask": "C/C++: gcc 生成活动文件"
+      "preLaunchTask": "compile" //此处必须与tasks.json中的label一致
     },
     {
       "name": "Launch",
@@ -157,13 +157,13 @@ quit
   "tasks": [
     {
       "type": "cppbuild",
-      "label": "C/C++: gcc 生成活动文件",
+      "label": "compile",
       "command": "/usr/bin/gcc",
       "args": [
         "-g",
         "${file}",
         "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
+        "${fileDirname}/build/${fileBasenameNoExtension}"
       ],
       "options": {
         "cwd": "${fileDirname}"
