@@ -126,6 +126,7 @@ typedef struct {
   int top;
 }SqStack;
 
+
 void InitStack(SqStack &S){
 	S.top =-1;
 }

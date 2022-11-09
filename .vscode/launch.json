@@ -1,14 +1,11 @@
 {
-  // 使用 IntelliSense 了解相关属性。
-  // 悬停以查看现有属性的描述。
-  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
       "name": "gcc",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "program": "${fileDirname}/debug/${fileBasenameNoExtension}",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
@@ -21,7 +18,7 @@
       "name": "Launch",
       "type": "lldb",
       "request": "launch",
-      "program": "${fileDirname}/build/${fileBasenameNoExtension}",
+      "program": "${fileDirname}/debug/${fileBasenameNoExtension}",
       "args": [],
       "cwd": "${workspaceFolder}"
     }

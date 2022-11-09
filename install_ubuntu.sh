@@ -1,1 +1,1 @@
-sudo apt install gcc gdb
+sudo apt install gcc gdb 
